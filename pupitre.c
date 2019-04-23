@@ -1,38 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+
 
 char bouton;
+typedef int bool
 
-int start = 0;
-int dep_g = 0;
-int dep_d = 0;
-int launch = 0;
+bool start;
+bool dep_g;
+bool dep_d;
+bool launch;
 
-int commande(char choix)
+bool commande(char choix)               /*Commandes du pupitre*/
 {
-	switch (choix)
+	 start = false;						/*  Démarrer le jeu  */
+	 dep_g = false;						/* déplacement gauche du jeton */
+	 dep_d = false;                     /* déplacement droit du jeton */
+	 launch = false;                    /* Lâcher du jeton */
+
+	switch (choix)                      /* Choix de la saisie */
 	{
 	case 's':
-		start = 1;
-		return start;
+		start = true;
+		return true;
 		break;
 	case 'd':
-		dep_d = 1;
-		return dep_d;
+		dep_d = true;
+		return true;
 		break;
 
 	case 'g':
-		dep_g = 1;
-		return dep_g;
+		dep_g = true;
+		return true;
 		break;
 
 	case 'b':
-		launch = 1;
-		return launch;
+		launch = true;
+		return true;
 		break;
 	}
-return 0;
+return false;
 }
 void pupitre()
 {
